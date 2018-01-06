@@ -1,0 +1,19 @@
+{
+  "name": "just-do-it",
+  "version": "1.0.0",
+  "description": "'a nodejs project'",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhoufeifan/just-do-it.git"
+  },
+  "author": "zhoufeifan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhoufeifan/just-do-it/issues"
+  },
+  "homepage": "https://github.com/zhoufeifan/just-do-it#readme"
+}
