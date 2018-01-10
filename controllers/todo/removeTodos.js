@@ -1,8 +1,5 @@
-function done(model,todoId) {
-    return model.findOneAndUpdate(
-        {id:todoId},
-        {isFinished: false,finishedTime:new Date()}
-    );
+function remove(model,todoId) {
+    return model.findOneAndRemove({id:todoId});
 }
 
 module.exports = async (ctx, next) => {
@@ -16,7 +13,7 @@ module.exports = async (ctx, next) => {
     idList = idList.split(',');
     try {
         idList.map(async (item)=>{
-            let data = await done(Todo,item);
+            let data = await remove(Todo,item);
             console.log(data);
         });
         ctx.success();

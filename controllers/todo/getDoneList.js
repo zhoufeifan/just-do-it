@@ -1,11 +1,12 @@
+function  getDoneList() {
+    const Todo = require('../../models/Todo');
+    return Todo.find({isFinished:true});
+}
+
 module.exports = async (ctx, next) => {
-    const {idList} = ctx.query;
-    if(!idList || !idList.length){
-        ctx.error("id 不能为空");
-        return;
-    }
     try {
-        ctx.success();
+        let todoList = await getDoneList();
+        ctx.success(todoList);
     } catch (e) {
         ctx.error(e);
     }

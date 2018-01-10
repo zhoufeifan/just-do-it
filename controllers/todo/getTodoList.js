@@ -1,14 +1,6 @@
 function  getTodoList() {
     const Todo = require('../../models/Todo');
-    return new Promise((resolve,reject)=>{
-        Todo.find(function (err, items) {
-            if (err) {
-                reject(err);
-                return;
-            }
-            resolve(items);
-        });
-    });
+    return Todo.find({isFinished:false});
 }
 
 module.exports = async (ctx, next) => {

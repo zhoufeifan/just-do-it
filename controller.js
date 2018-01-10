@@ -8,7 +8,6 @@ function addControllers(router, dir = './controllers') {
         if (stat.isDirectory()) {
             return addControllers(router, path);
         }
-
         // 获取处理函数
         const handleAction = require(path);
         //去除路径中的.js

@@ -22,7 +22,7 @@ app.context.success = function (data) {
         result: {
             success: true,
             errorCode: '0',
-            errorMsg: null,
+            errorMsg: "操作成功",
         },
         data,
     };
