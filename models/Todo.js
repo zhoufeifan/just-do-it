@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const todoSchema = mongoose.Schema({
-    id: String, // id
+    id: Number, // id
     title: String,// 标题
     description: String,//事项说明
     isFinished: Boolean,//是否完成

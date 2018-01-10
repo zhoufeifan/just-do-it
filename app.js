@@ -6,7 +6,6 @@ const app = new Koa();
 
 const MONGO_DB_URL = 'mongodb://176.122.172.8:27017/test';
 
-
 mongoose.connect(MONGO_DB_URL, {
     useMongoClient: true,
     /* other options */
