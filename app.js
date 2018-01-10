@@ -4,6 +4,9 @@ const controller = require('./controller');
 const mongoose = require('mongoose');
 const app = new Koa();
 
+const {dbHost} = require('./config.json');
+
+console.log(dbHost);
 const MONGO_DB_URL = 'mongodb://176.122.172.8:27017/test';
 
 mongoose.connect(MONGO_DB_URL, {
