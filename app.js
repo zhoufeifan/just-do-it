@@ -7,7 +7,7 @@ const app = new Koa();
 const {dbHost} = require('./config.json');
 
 console.log(dbHost);
-const MONGO_DB_URL = 'mongodb://176.122.172.8:27017/test';
+const MONGO_DB_URL = `mongodb://${dbHost}/test`;
 
 mongoose.connect(MONGO_DB_URL, {
     useMongoClient: true,
