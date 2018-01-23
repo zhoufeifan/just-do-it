@@ -6,7 +6,19 @@ function  getTodoList() {
 module.exports = async (ctx, next) => {
     try {
         let todoList = await getTodoList();
-        ctx.success(todoList);
+        let result = [];
+        todoList.map((item=>{
+            let data = {};
+            data.id = item.id;
+            data.title = item.title;
+            data.type = item.type;
+            data.isFinished = item.isFinished;
+            data.createdTime = item.createdTime.valueOf();
+            data.description = item.description;
+            result.push(data);
+
+        }));
+        ctx.success(result);
     } catch (e) {
         ctx.error(e);
     }

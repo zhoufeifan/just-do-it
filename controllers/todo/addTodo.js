@@ -1,29 +1,21 @@
 const getTheLastId = require('../../utils/getLastTheId');
 
 module.exports = async (ctx, next) => {
-    const {title = "unknow",description ="you are lazy !"} = ctx.query;
+    const {title = "unknow", description = "you are lazy !", type = "1"} = ctx.method === 'POST' ? ctx.request.body : ctx.query;
     const Todo = require('../../models/Todo.js');
     let id = await getTheLastId(Todo);
-    console.log(id);
+    console.log(id,title,type);
     let todoItem = {
         id,
         title,
+        type,
         isFinished: false,
         createdTime: new Date(),
         description
     };
 
     try {
-        await new Promise((resolve,reject)=>{
-            new Todo(todoItem).save((error,item)=>{
-                if(error) {
-                    reject(error);
-                    console.log(error);
-                    return;
-                }
-                resolve();
-            });
-        });
+        await new Todo(todoItem).save();
         ctx.success("操作成功");
     } catch (e) {
         console.log(e);

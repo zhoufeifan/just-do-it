@@ -1,4 +1,5 @@
 const Koa = require('koa');
+const bodyParser = require('koa-bodyparser');//处理post请求
 const controller = require('./controller');
 // const session = require('koa-session2');
 const mongoose = require('mongoose');
@@ -40,6 +41,9 @@ app.context.error = function (msg = '系统错误', code = 'PARAMS_ERROR') {
         },
     };
 };
+
+// 使用ctx.body解析中间件
+app.use(bodyParser());
 
 // 全局错误处理
 app.use(async function (ctx, next) {
