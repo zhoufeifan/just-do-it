@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/zhoufeifan/just-do-it#readme",
   "dependencies": {
+    "ioredis": "^3.2.2",
     "koa": "^2.4.1",
     "koa-bodyparser": "^3.2.0",
     "koa-router": "^7.3.0",
+    "koa-session": "^5.8.1",
     "mongoose": "^4.13.9"
   }
 }

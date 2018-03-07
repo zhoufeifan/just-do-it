@@ -1,7 +1,8 @@
 const getTheLastId = require('../../utils/getLastTheId');
 
 module.exports = async (ctx, next) => {
-    const {title = "unknow", description = "you are lazy !", type = "1"} = ctx.method === 'POST' ? ctx.request.body : ctx.query;
+    const requestData = ctx.method === 'POST' ? ctx.request.body : ctx.query;
+    const {title = "unknow", description = "you are lazy !", type = "1"} = requestData;
     const Todo = require('../../models/Todo.js');
     let id = await getTheLastId(Todo);
     console.log(id,title,type);

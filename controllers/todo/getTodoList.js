@@ -4,6 +4,7 @@ function  getTodoList() {
 }
 
 module.exports = async (ctx, next) => {
+    console.log(ctx.session);
     try {
         let todoList = await getTodoList();
         let result = [];
