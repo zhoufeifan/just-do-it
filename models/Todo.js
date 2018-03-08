@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const todoSchema = mongoose.Schema({
     id: Number, // id
+    userId: Number,//userId
     title: String,// 标题
     type: String,//事项类型
     description: String,//事项说明
