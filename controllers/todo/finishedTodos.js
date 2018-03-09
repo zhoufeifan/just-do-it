@@ -1,7 +1,7 @@
 function done(model,todoId,userId) {
     return model.findOneAndUpdate(
         {id:todoId,userId},
-        {isFinished: false,finishedTime:new Date()}
+        {isFinished: true,finishedTime:new Date()}
     );
 }
 
