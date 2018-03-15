@@ -9,7 +9,6 @@ module.exports = async (ctx, next) => {
         try {
             let todoList = await getTodoList(userId);
             let result = [];
-            console.log(todoList);
             todoList.map((item=>{
                 let data = {};
                 data.id = item.id;
