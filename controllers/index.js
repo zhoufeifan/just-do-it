@@ -18,6 +18,10 @@ function getRouterList(dirPath, prefix = "") {
 
 module.exports = async (ctx, next) => {
     ctx.type = 'text/html';
+    // ctx.body = fs.createReadStream('./nima.html');
+    // console.log(fs.createReadStream('../../nima.html').toString());
+    // ctx.response.type = "html";
+    // ctx.response.body = fs.createReadStream('./nima.html');
     ctx.body = `${getRouterList(path.resolve('./controllers'))}`;
     await next();
 };

@@ -82,7 +82,6 @@ app.use(async (ctx, next) => {
     ctx.set("Access-Control-Allow-Headers", "X-Requested-With");
     ctx.set('Access-Control-Allow-Headers', 'Content-Type');
     ctx.set('Access-Control-Allow-Credentials', 'true');
-
     await next();
 });
 
@@ -105,6 +104,6 @@ app.use(async (ctx, next) => {
 app.use(controller());
 
 
-app.listen(3000,()=>{
-    console.log('starting at port 3000')
+app.listen(3001,()=>{
+    console.log('starting at port 3001')
 });
