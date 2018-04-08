@@ -105,5 +105,5 @@ app.use(controller());
 
 
 app.listen(3001,()=>{
-    console.log('starting at port 3001')
+    console.log('starting at http://localhost:3001')
 });

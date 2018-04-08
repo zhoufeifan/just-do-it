@@ -1,4 +1,5 @@
 const superagent = require('superagent');
+const cheerio = require('cheerio');
 const pdf = require('html-pdf');
 const browserMsg = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
@@ -38,7 +39,9 @@ function createPDF(html) {
 
 module.exports = async (ctx, next) => {
     ctx.type = 'application/pdf';
-    const html = await getResumePage("http://localhost:3000");
-    ctx.body = await createPDF(html);
+    let html = await getResumePage("http://localhost:3000");
+    let $ = cheerio.load(html);
+    $('.download').text('');
+    ctx.body = await createPDF($.html());
     await next();
 };
