@@ -1,4 +1,4 @@
-function  getTaskList({userId,beginTime,endTime,lookUpFinishedTask}) {
+function  getTaskList({userId,beginTime,endTime}) {
     const Todo = require('../../models/Todo');
     let query = {};
     if(beginTime){
@@ -7,15 +7,12 @@ function  getTaskList({userId,beginTime,endTime,lookUpFinishedTask}) {
             {"createdTime":{"$lte": new Date(endTime)}}
         ];
     }
-    if(!lookUpFinishedTask){
-        query.isFinished = true;
-    }
     return Todo.find({...query,userId});
 }
 
 module.exports = async (ctx, next) => {
     const requestData = ctx.method === 'POST' ? ctx.request.body : ctx.query;
-    let {beginTime = "", endTime = "", lookUpFinishedTask = false} = requestData;
+    let {beginTime = "", endTime = "",} = requestData;
     const {userId}= ctx.session;
     if(userId){
         try {
@@ -23,8 +20,8 @@ module.exports = async (ctx, next) => {
                 userId,
                 beginTime,
                 endTime,
-                lookUpFinishedTask
             });
+            console.log(taskList);
             let result = [];
             taskList.map((item=>{
                 let data = {};

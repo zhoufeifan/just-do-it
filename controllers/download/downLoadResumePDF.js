@@ -40,7 +40,9 @@ function createPDF(html) {
 
 module.exports = async (ctx, next) => {
     ctx.type = 'application/pdf';
+    console.log(resumeUrl);
     let html = await getResumePage(resumeUrl);
+    console.log(html);
     let $ = cheerio.load(html);
     $('.download').text('');
     ctx.body = await createPDF($.html());
