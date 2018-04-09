@@ -1,6 +1,7 @@
 const superagent = require('superagent');
 const cheerio = require('cheerio');
 const pdf = require('html-pdf');
+const {resumeUrl} = require('../../config.json');
 const browserMsg = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
     'Content-Type': 'application/x-www-form-urlencoded'
