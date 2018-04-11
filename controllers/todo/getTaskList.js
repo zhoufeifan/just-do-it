@@ -4,7 +4,7 @@ function  getTaskList({userId,beginTime,endTime}) {
     if(beginTime){
         query.$and= [
             {"createdTime":{"$gte": new Date(beginTime)}},
-            {"createdTime":{"$lte": new Date(endTime)}}
+            {"createdTime":{"$lte": new Date(endTime).setDate(new Date(endTime).getDate()+1)}}
         ];
     }
     return Todo.find({...query,userId});
@@ -21,7 +21,6 @@ module.exports = async (ctx, next) => {
                 beginTime,
                 endTime,
             });
-            console.log(taskList);
             let result = [];
             taskList.map((item=>{
                 let data = {};
