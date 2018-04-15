@@ -24,7 +24,7 @@ function getResumePage(url) {
 
 function createPDF(html) {
     return new Promise((resolve, reject)=>{
-        pdf.create(html, {width: '300mm', height: '800mm'}).toBuffer(function(err, buffer){
+        pdf.create(html, {width: '300mm', height: '808mm'}).toBuffer(function(err, buffer){
             if(err){
                 reject(err);
             }
