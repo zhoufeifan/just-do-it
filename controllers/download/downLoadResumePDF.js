@@ -24,7 +24,20 @@ function getResumePage(url) {
 
 function createPDF(html) {
     return new Promise((resolve, reject)=>{
-        pdf.create(html, {width: '300mm', height: '808mm'}).toBuffer(function(err, buffer){
+        pdf.create(html, {
+            "format": "A4",
+            "orientation": "portrait",
+            "header": {
+                "height": "8mm",
+                "contents": '<div style="text-align: center; font-size:10px; background-color: white">简历 &nbsp;| &nbsp;周非凡</div>'
+            },
+            "footer": {
+                "height": "6mm",
+                "contents": {
+                    default: '<div style="color: #444; font-size:10px; text-align: center;">{{page}}/{{pages}}</div>', // fallback value
+                }
+            },
+        }).toBuffer(function(err, buffer){
             if(err){
                 reject(err);
             }
