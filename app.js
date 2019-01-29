@@ -21,19 +21,19 @@ const CONFIG = {
 app.use(session(CONFIG, app));
 
 
-const {dbHost} = require('./config.json');
+// const {dbHost} = require('./config.json');
 
-console.log(dbHost);
-const MONGO_DB_URL = `mongodb://${dbHost}/test`;
+// console.log(dbHost);
+// const MONGO_DB_URL = `mongodb://${dbHost}/test`;
 
-mongoose.connect(MONGO_DB_URL, {
-    useMongoClient: true,
-    /* other options */
-}).then(()=>{
-    console.log('connect success');
-},()=>{
-    console.log('connect error');
-});
+// mongoose.connect(MONGO_DB_URL, {
+//     useMongoClient: true,
+//     /* other options */
+// }).then(()=>{
+//     console.log('connect success');
+// },()=>{
+//     console.log('connect error');
+// });
 
 
 
