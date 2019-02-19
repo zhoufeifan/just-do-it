@@ -30,13 +30,7 @@ function createPDF(html) {
             "header": {
                 "height": "8mm",
                 "contents": '<div style="text-align: center; font-size:10px; background-color: white">简历 &nbsp;| &nbsp;周非凡</div>'
-            },
-            "footer": {
-                "height": "6mm",
-                "contents": {
-                    default: '<div style="color: #444; font-size:10px; text-align: center;">{{page}}/{{pages}}</div>', // fallback value
-                }
-            },
+            }
         }).toBuffer(function(err, buffer){
             if(err){
                 reject(err);
